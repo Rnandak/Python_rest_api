@@ -8,7 +8,7 @@ pipeline {
         steps{
           sh 'python3 --version'
 					echo $env.build_number
-					echi $env.build_id
+					echo $env.build_id
 
         }
       }
