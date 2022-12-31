@@ -15,15 +15,15 @@ pipeline {
       }
      stage('Build Docker Image'){
        steps{
-        //sh 'docker build -t rnandak/hello-world-python:$env.build_id .'
-				script {dockerimage =docker.build("rnandak/hello-world-python-rest-api:${env.build_tag}")}
+        sh 'docker build -t rnandak/hello-world-python:0.0.2.RELEASE .'
+				//script {dockerimage =docker.build("rnandak/hello-world-python-rest-api:${env.build_tag}")}
 
       }
       }
       stage('Docker Image Push'){
        steps{
-        //sh 'docker push rnandak/hello-world-python:$env.build_id'
-				script{dockerimage.push();
+        sh 'docker push rnandak/hello-world-python:0.0.2.RELEASE'
+				//script{dockerimage.push();
 				dockerimage.push('latest');
 				}
       }
