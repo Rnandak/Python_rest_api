@@ -7,6 +7,9 @@ pipeline {
       stage('Test version'){
         steps{
           sh 'python3 --version'
+					echo $env.build_number
+					echi $env.build_id
+
         }
       }
       stage('Build Docker Image'){
