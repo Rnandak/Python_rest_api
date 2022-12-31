@@ -15,7 +15,7 @@ pipeline {
       }
      stage('Build Docker Image'){
        steps{
-      sh "docker build -t rnandak/hello-world-python:0.0.2.RELEASE ."
+      sh "docker build -t rnandak/hello-world-python:0.0.3.RELEASE ."
 				//script {dockerimage =docker.build("rnandak/hello-world-python-rest-api:${env.build_tag}")}
 
       }
@@ -24,7 +24,7 @@ pipeline {
        steps{
 			 script{
 			 docker.withRegistry('','docker-hub'){
-			 sh "docker push rnandak/hello-world-python:0.0.2.RELEASE"
+			 sh "docker push rnandak/hello-world-python:0.0.3.RELEASE"
 			 }
 			 }
       }
