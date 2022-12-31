@@ -5,17 +5,17 @@ pipeline {
   }
     stages{
       stage('Test version'){
-        step{
+        steps{
           sh 'python3 --version'
         }
       }
       stage('Build Docker Image'){
-       step{
+       steps{
          "docker build -t rnandak/hello-world-python:$env.build_id ."
       }
       }
       stage('Docker Image Push'){
-       step {
+       steps{
          "docker push rnandak/hello-world-python:$env.build_id"
       }
       }
