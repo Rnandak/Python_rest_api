@@ -23,9 +23,6 @@ pipeline {
       stage('Docker Image Push'){
        steps{
         sh 'docker push rnandak/hello-world-python:0.0.2.RELEASE'
-				//script{dockerimage.push();
-				dockerimage.push('latest');
-				}
       }
       }
     }
