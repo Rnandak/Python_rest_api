@@ -9,17 +9,22 @@ pipeline {
           sh 'python3 --version'
 					echo "$env.build_number"
 					echo "$env.build_id"
+					echo "$env.build_tag"
 
         }
       }
-      stage('Build Docker Image'){
+     stage('Build Docker Image'){
        steps{
-        sh 'docker build -t rnandak/hello-world-python:$env.build_id .'
+        //sh 'docker build -t rnandak/hello-world-python:$env.build_id .'
+				dockerimage =docker.build("rnandak/hello-world-python-rest-api:${env.build_tag}")
+
       }
       }
       stage('Docker Image Push'){
        steps{
-        sh 'docker push rnandak/hello-world-python:$env.build_id'
+        //sh 'docker push rnandak/hello-world-python:$env.build_id'
+				dockerimage.push();
+				dockerimage.push('latest');
       }
       }
     }
