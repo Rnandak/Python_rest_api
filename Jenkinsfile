@@ -11,12 +11,12 @@ pipeline {
       }
       stage('Build Docker Image'){
        steps{
-        script{ "docker build -t rnandak/hello-world-python:$env.build_id ."}
+        sh 'docker build -t rnandak/hello-world-python:$env.build_id .'
       }
       }
       stage('Docker Image Push'){
        steps{
-        script{"docker push rnandak/hello-world-python:$env.build_id"}
+        sh 'docker push rnandak/hello-world-python:$env.build_id'
       }
       }
     }
