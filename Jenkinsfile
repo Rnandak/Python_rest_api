@@ -7,8 +7,8 @@ pipeline {
       stage('Test version'){
         steps{
           sh 'python3 --version'
-					echo $env.build_number
-					echo $env.build_id
+					echo "$env.build_number"
+					echo "$env.build_id"
 
         }
       }
