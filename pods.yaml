@@ -1,0 +1,2 @@
+NAME                                READY   STATUS    RESTARTS      AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+hello-world-python-8d9ffd47-td8b9   1/1     Running   1 (29m ago)   78m   172.17.0.5   minikube   <none>           <none>
